@@ -1,0 +1,54 @@
+{% extends 'default.html' %}
+{% block title %} Login {% endblock %}
+   
+
+     
+{% block content %}
+
+<style>
+  body {
+    background-color: rgba(255, 255, 255, 0.75);
+    display: ;
+    justify-content: center;
+    align-items: center;
+    height: ; 
+    margin: ;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .content {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    text-align: ;
+    border-radius: 10px;
+  }
+  .image {
+    opacity: 0.75;
+  }
+</style>
+
+<h1>Login page</h1>
+<div class="container">
+  {% if message=='error'%}
+  <p class="alert alert-danger">All fields are mandatory!</p>
+  {% elif  username==None and message=='Success' %}
+  <p class="alert alert-warning">Username or password is incorrect.</p>
+  {% elif message=='Error' %}
+  <p class="alert alert-danger"> Server is currently down, please contact support.</p>
+  {%endif%}
+</div>
+<form action="{{url_for('login')}}" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input name="username" type="text" class="form-control" id="username" aria-describedby="username">
+      <div id="username" class="form-text">We'll never share your private informations.</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input name="password" type="password" class="form-control" id="password">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+{% endblock %}

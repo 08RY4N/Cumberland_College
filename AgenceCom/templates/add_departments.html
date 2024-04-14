@@ -1,0 +1,57 @@
+{% extends 'default.html' %}
+
+{% block title %} Add a Department {% endblock %}
+
+{% block content %}
+  
+<style>
+    body {
+        background-color: rgba(255, 255, 255, 0.75);
+        display: ;
+        justify-content: center;
+        align-items: center;
+        height: ; 
+        margin: ;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+  .content {
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      text-align: ;
+      border-radius: 10px;
+    }
+    .image {
+      opacity: 0.75;
+    }
+  </style>
+
+<h1>Please fill in this field to add a department</h1>
+<div class="container">
+    {% if message=='error'%}
+    <p class="alert alert-danger" role="alert">All fields are mandatory!</p>
+    {% elif message == 'Error'%}
+    <p class="alert alert-warning" role="warning">Error during addition, the department name cannot be a duplicate. If the error persists, please contact support.</p>
+    {% elif message=='Success'%}
+    <p class="alert alert-success" role="success">Department {{department.name}} added successfully!</p>
+    {%endif%}
+</div>
+<form action="{{url_for('add_departments')}}" method="POST">
+    <div class="form-floating mb-3">
+        <input  name="name" type="text" class="form-control" id="name" >
+        <label for="name">Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input  name="location" type="text" class="form-control" id="location" >
+        <label for="location">Location</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input  name="head" type="text" class="form-control" id="head" >
+        <label for="head">Head</label>
+    </div>
+    <div class ="form-floating mb-3">
+        <button type="submit" class="btn btn-primary">Add department</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'default.html' %}
+{% block title %} Register as a new user {% endblock %}
+
+
+{% block content %}
+
+<style>
+    body {
+      background-color: rgba(255, 255, 255, 0.75);
+      display: ;
+      justify-content: center;
+      align-items: center;
+      height: ; 
+      margin: ;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  
+    .content {
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      text-align: ;
+      border-radius: 10px;
+    }
+    .image {
+      opacity: 0.75;
+    }
+  </style>
+
+<h1>Please fill in this form to register a new user</h1>
+<div class="container">
+    {% if message=='error'%}
+    <p class="alert alert-danger" role="alert">All fields are mandatory!</p>
+    {% elif message == 'Error'%}
+    <p class="alert alert-warning" role="warning">Error while adding, if the error persists, please contact support.</p>
+    {% elif message=='Success'%}
+    <p class="alert alert-success" role="success">User {{user.username}} added successfully!</p>
+    {%endif%}
+</div>
+<form action="{{url_for('register')}}" method="POST">
+    <div class="form-floating mb-3">
+        <input  name="full_name" type="text" class="form-control" id="full_name" >
+        <label for="full_name">Full Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input  name="username" type="text" class="form-control" id="username" >
+        <label for="username">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input  name="password" type="text" class="form-control" id="password" >
+        <label for="password">Password</label>
+    </div>
+    
+    </div>
+    <div class ="form-floating mb-3">
+        <button type="submit" class="btn btn-primary">Add user</button>
+    </div>
+        
+</form>
+{% endblock %}

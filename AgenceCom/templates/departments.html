@@ -1,0 +1,54 @@
+{% extends 'default.html' %}
+
+{% block title %} Departments {% endblock %}
+
+{% block content %}
+  
+<style>
+    body {
+        background-color: rgba(255, 255, 255, 0.75);
+        display: ;
+        justify-content: center;
+        align-items: center;
+        height: ; 
+        margin: ;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+  .content {
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      text-align: ;
+      border-radius: 10px;
+    }
+    .image {
+      opacity: 0.75;
+    }
+  </style>
+
+<h1>List of departments</h1>
+
+<table class="table table-light table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Location</th>
+        <th scope="col">Head</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for department in departments %}
+        <tr>
+            <td>{{ department[0] }}</td>
+            <td>{{ department[1] }}</td>
+            <td>{{ department[2] }}</td>
+            <td>{{ department[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'default.html' %}
+
+{% block title %} Employees {% endblock %}
+
+{% block content %}
+  
+<style>
+    body {
+        background-color: rgba(255, 255, 255, 0.75);
+        display: ;
+        justify-content: center;
+        align-items: center;
+        height: ; 
+        margin: ;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+  .content {
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      text-align: ;
+      border-radius: 10px;
+    }
+    .image {
+      opacity: 0.75;
+    }
+  </style>
+
+<h1>Liste of employees</h1>
+
+<table class="table table-light table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Last name</th>
+        <th scope="col">First name</th>
+        <th scope="col">Badge number</th>
+        <th scope="col">Position</th>
+        <th scope="col">Department</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for employee in employees%}
+        <tr>
+            <td>{{employee[0]}}</td>
+            <td>{{employee[1]}}</td>
+            <td>{{employee[2]}}</td>
+            <td>{{employee[3]}}</td>
+            <td>{{employee[4]}}</td>
+            <td>{{employee[5]}}</td>
+        </tr>
+        {%endfor%}
+        </tr>
+    </tbody>
+  </table>
+{% endblock %}
